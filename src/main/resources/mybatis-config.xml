@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--打印执行的SQL-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <!--
+            给实体类设置别名,mapper中就可以不用写包名+类名了，直接使用设置好的别名就行
+        -->
+        <!--<typeAlias type="com.qianfeng.pojo.Student" alias="Student"></typeAlias>-->
+
+        <!--上面使用比较麻烦，我们直接配置整个包，mapper中直接使用类名即可-->
+        <package name="com.qianfeng.pojo"></package>
+    </typeAliases>
+</configuration>

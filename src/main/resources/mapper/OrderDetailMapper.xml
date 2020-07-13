@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianfeng.dao.OrderDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.qianfeng.pojo.OrderDetail" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="oid" property="oid" jdbcType="INTEGER" />
+    <result column="bid" property="bid" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from order_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qianfeng.pojo.OrderDetail" >
+    insert into order_detail (id, oid, bid, 
+      num)
+    values (#{id,jdbcType=INTEGER}, #{oid,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.qianfeng.pojo.OrderDetail" >
+    update order_detail
+    set oid = #{oid,jdbcType=INTEGER},
+      bid = #{bid,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, oid, bid, num
+    from order_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, oid, bid, num
+    from order_detail
+  </select>
+  <insert id="addOrderDetail">
+    insert into order_detail (oid, bid, num)
+    values ( #{oid,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER},
+      #{num,jdbcType=INTEGER})
+  </insert>
+  <select id="getOrderDetailListByoid" resultMap="BaseResultMap">
+    select *
+    from order_detail
+    where oid=#{oid};
+  </select>
+</mapper>

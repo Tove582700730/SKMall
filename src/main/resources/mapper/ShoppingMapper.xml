@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianfeng.dao.ShoppingMapper" >
+  <resultMap id="BaseResultMap" type="com.qianfeng.pojo.Shopping" >
+    <id column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="bid" property="bid" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shopping
+    where sid = #{sid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qianfeng.pojo.Shopping" >
+    insert into shopping (sid, bid, uid, 
+      num)
+    values (#{sid,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.qianfeng.pojo.Shopping" >
+    update shopping
+    set bid = #{bid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select sid, bid, uid, num
+    from shopping
+    where sid = #{sid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select sid, bid, uid, num
+    from shopping
+  </select>
+  <insert id="addShopping">
+    insert into shopping (bid, uid,num)
+    values (#{bid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER},
+      #{num,jdbcType=INTEGER})
+  </insert>
+  <select id="getShoppingByuidAndbid" resultMap="BaseResultMap">
+    select * from shopping where uid=#{uid} and bid=#{bid}
+  </select>
+  <update id="updateShoppingCountByuidAndbid">
+    update shopping set num=#{num}
+    where uid=#{uid} and bid=#{bid}
+  </update>
+  <select id="getShoppingListByuid" resultMap="BaseResultMap">
+    select * from shopping where uid=#{uid};
+  </select>
+</mapper>

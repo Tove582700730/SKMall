@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianfeng.dao.OrdersMapper" >
+  <resultMap id="BaseResultMap" type="com.qianfeng.pojo.Orders" >
+    <id column="oid" property="oid" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="order_price" property="orderPrice" jdbcType="DOUBLE" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_order
+    where oid = #{oid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qianfeng.pojo.Orders" >
+    insert into tb_order (oid, createtime, uid, 
+      order_price)
+    values (#{oid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{uid,jdbcType=INTEGER}, 
+      #{orderPrice,jdbcType=DOUBLE})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.qianfeng.pojo.Orders" >
+    update tb_order
+    set createtime = #{createtime,jdbcType=TIMESTAMP},
+      uid = #{uid,jdbcType=INTEGER},
+      order_price = #{orderPrice,jdbcType=DOUBLE}
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select oid, createtime, uid, order_price
+    from tb_order
+    where oid = #{oid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select oid, createtime, uid, order_price
+    from tb_order
+  </select>
+  <!--
+    添加数据之后返回刚刚生成的id
+    keyProperty：返回给对象的具体的属性值
+    keyColumn：表中查询的oid字段
+    order:顺序  取值是AFTER的话，添加之后查询oid 如果取值是BEFORE,添加之前查询oid
+  -->
+  <insert id="addOrder">
+    insert into tb_order (createtime, uid,
+      order_price)
+    values ( #{createtime,jdbcType=TIMESTAMP}, #{uid,jdbcType=INTEGER},
+      #{orderPrice,jdbcType=DOUBLE})
+      <selectKey keyProperty="oid" keyColumn="oid" resultType="java.lang.Integer" order="AFTER">
+        select last_insert_id();
+      </selectKey>
+  </insert>
+</mapper>

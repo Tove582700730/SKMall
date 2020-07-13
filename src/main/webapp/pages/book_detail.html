@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="icon" href="https://www.szbookmall.com/favicon.ico">
+		<title>深圳书城——深圳书城唯一官方网站</title>
+		<link href="/css/cultural_details_merchant_mycart.079a84ba.css" rel="prefetch">
+		<link href="/css/details.27b2fd3b.css" rel="prefetch">
+		<link href="/css/details_mycart_orderPay_search.b5f435f0.css" rel="prefetch">
+		<link href="/js/cultural_details_merchant_mycart.4022eafb.js" rel="prefetch">
+		<link href="/js/details.9caf8576.js" rel="prefetch">
+		<link href="/js/details_merchant_submitorder.ecbe09f1.js" rel="prefetch">
+		<link href="/js/details_mycart_orderPay_search.bd179746.js" rel="prefetch">
+		<link href="/css/app.5ca165e5.css" rel="preload" as="style">
+		<link href="/css/chunk-vendors.68bf6ad5.css" rel="preload" as="style">
+		<link href="/js/app.06589e7e.js" rel="preload" as="script">
+		<link href="/js/chunk-vendors.89a26db2.js" rel="preload" as="script">
+		<link href="/css/chunk-vendors.68bf6ad5.css" rel="stylesheet">
+		<link href="/css/app.5ca165e5.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/details_mycart_orderPay_search.b5f435f0.css">
+		<link rel="stylesheet" href="/layui/css/layui.css" />
+		<script charset="utf-8" src="/js/details_mycart_orderPay_search.bd179746.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/cultural_details_merchant_mycart.079a84ba.css">
+		<script charset="utf-8" src="/js/cultural_details_merchant_mycart.4022eafb.js"></script>
+		<script charset="utf-8" src="/js/details_merchant_submitorder.ecbe09f1.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/details.27b2fd3b.css">
+		<link rel="stylesheet" href="/css/rep.css">
+		<script charset="utf-8" src="/js/details.9caf8576.js"></script>
+
+	</head>
+	<body>
+		<div data-v-0fa58336="" id="app">
+			<div data-v-16d07261="" data-v-0fa58336="" class="top-header-box">
+				<div data-v-16d07261="" class="margin-auto max-width clearfix">
+					<div data-v-16d07261="" class="notice-box">
+						<div data-v-16d07261="" class="notice-box-img"><img data-v-16d07261="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjA5Nzk5RTQwQjM2NzExRTk4QjM0OEJBMUQ0RDgyODQ0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjA5Nzk5RTQxQjM2NzExRTk4QjM0OEJBMUQ0RDgyODQ0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDk3OTlFM0VCMzY3MTFFOThCMzQ4QkExRDREODI4NDQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDk3OTlFM0ZCMzY3MTFFOThCMzQ4QkExRDREODI4NDQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6nCeKrAAACnElEQVR42uyZT0gUURzHZ9ctlbRExbU/UlGooYl5KLxEgXVSDKtLRCcvEeqtW5c6BB0iCrxJhw4ewosapCcLIgI7VBAURoeUgiiVIoqs6fPot7AOM+7O251/y/zgw8LMe79533nzfu/3fpswTdMoBUsaJWKxkFhILCQWEshYbsIknHHdW+0jISAFd831ds2NjzCISMO0aW99URFyEhZMZ3sFm/PxFdQaaYRRmIF9G7Rrh+NhXOxVMALzcDHPPgP5NEr5JKAezsElaHbZ9yhsgt8bNUp4mP2WwWG4AP2wXdPPGrTBWz9nZCd0yXet6CyCTzXGA8UWUgFbYKss2N1Ci7y1VrlXbGvRWSNqgLflnvruEnAfxuG6fOvVUOljkNirI0S90bOWawsiJA0NAYTrHTrh969NhPiVtfCCsAYdIWG0mlxjjYoQFWTKS0FIKleEjQ9WPpsKMn9KQchPIfJCvsi2EHkhSzprJClpszX8GT6nJdn2RidFWYUxScMz9lR+H2cljOq3Tg5LCY+FPM/VoJDzSKUcmJSgXbAHOuAg7C/g/GG1b5L9fgziYFUjDz8GJ+AQ1Gr6egC9Xs5It+Wc8AkeOrRNy5F1QITVuXhOH0x7WaC7YyndrEB1Hv0aYUhKPbnsESS9rmsN2jz4lIv+5TAMSw4ilqHNjwJdO6xZHj6r4acJpix+PkOPXyVTNeXzNm+yV9PfFViEe9Dstn+hJc8RGyEf5C3r+NumO5ZCw68Kqa8lKmXbM+iB71FJ47/CLZvrR6TyUuWXkGJsiKo09MKhZDMHp0Vw6A9WKoW47HBP7exXozIjGZsw7Cvn743/fx2YYZ+RjA3DouXaO7jhtQgvkkZV+z0Py/AEXsKPqH1acRUlFhILCbH9E2AAI3lP8Xm5eaYAAAAASUVORK5CYII="
+							 alt=""></div>
+						<div data-v-16d07261="" class="seamless-warp2">
+							<div style="transform: translate(-34px, 0px); transition: all 0ms ease-in 0s; overflow: hidden; width: 401px;">
+								<div style="float: left; overflow: hidden;">
+									<ul data-v-16d07261="" class="item">
+										<li data-v-16d07261="">深圳书城金山大厦招租公告</li>
+										<li data-v-16d07261="">深圳书城金山大厦招租公告</li>
+									</ul>
+								</div>
+								<div style="float: left; overflow: hidden;">
+									<ul data-v-16d07261="" class="item">
+										<li data-v-16d07261="">深圳书城金山大厦招租公告</li>
+										<li data-v-16d07261="">深圳书城金山大厦招租公告</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<ul data-v-16d07261="" class="top-nav">
+						<li v-if="loginUser==null" data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)" >
+							<span data-v-16d07261="">欢迎光临深圳书城 ,请先</span>
+							<span data-v-16d07261="">登录</span> / <span data-v-16d07261="">注册</span></a>
+						</li>
+						<li v-else data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)" >
+							<span data-v-16d07261="">欢迎光临深圳书城 ,请先</span>
+							<span data-v-16d07261="">{{loginUser.username}}</span> / <span @click="exitLogin" data-v-16d07261="">退出登录</span></a>
+						</li>
+						<li data-v-16d07261=""><a data-v-16d07261="" href="https://www.szbookmall.com/user/order" class="">我的订单</a></li>
+					</ul>
+				</div>
+			</div>
+			<div data-v-248f958f="" data-v-0fa58336="" class="logoandsearchbox margin-auto max-width clearfix">
+				<div data-v-248f958f="" class="fl">
+					<div data-v-248f958f="" class="logo router-link-active"><img data-v-248f958f="" src="/img/pc_logo.5cb2ed14.png"
+						 alt=""></div>
+				</div>
+				<div data-v-248f958f="" class="fl logo-desc-title"> 在 每 一 个 美 好 的 思 想 前 停 留 </div>
+				<div data-v-248f958f="" class="fr right-box">
+					<form data-v-248f958f="" class="fl search-box"><input data-v-248f958f="" type="search" placeholder="书名、作者、ISBN"
+						 class="searchInput">
+						<div data-v-248f958f="" class="search-icon"></div>
+						<ul data-v-248f958f="" class="search-list" style="display: none;"></ul>
+					</form>
+					<div data-v-248f958f="" class="fl top-icon">
+						<div @click="gotoShoppingCart" data-v-248f958f="" class="icon-cart"></div>
+						<!---->
+						<div data-v-248f958f="" class="top-cart-list-box" style="display: none;">
+							<div data-v-248f958f="" class="list-box"></div>
+							<div data-v-248f958f="" class="top-cart-footer clearfix">
+								<div data-v-248f958f="" class="fl left-text">合计（不含运费）<span data-v-248f958f="" class="red totalPrice">￥</span></div>
+								<div data-v-248f958f="" class="fr right-btn">去购物车结算</div>
+							</div>
+						</div>
+					</div>
+					<div data-v-248f958f="" class="fl top-icon">
+						<div data-v-248f958f="" class="message"></div>
+					</div>
+					<div data-v-248f958f="" class="fl top-icon">
+						<div data-v-248f958f="" class="person-icon"></div>
+					</div>
+				</div>
+			</div>
+			<div data-v-737dc7a5="" data-v-0fa58336="" class="logoandsearchbox margin-auto max-width clearfix" style="display: none;">
+				<div data-v-737dc7a5="" class="fl">
+					<div data-v-737dc7a5="" class="logo router-link-active"><img data-v-737dc7a5="" src="/img/pc_logo.5cb2ed14.png"
+						 alt=""></div>
+				</div>
+				<div data-v-737dc7a5="" class="fr right-box">
+					<form data-v-737dc7a5="" class="fl search-box"><input data-v-737dc7a5="" type="search" placeholder="书名、作者、ISBN"
+						 class="searchInput">
+						<div data-v-737dc7a5="" class="search-btn out-line">搜全站</div>
+						<div data-v-737dc7a5="" class="search-btn hart on">搜本店</div>
+						<ul data-v-737dc7a5="" class="search-list" style="display: none;"></ul>
+					</form>
+					<div data-v-737dc7a5="" class="fl top-icon">
+						<div data-v-737dc7a5="" class="icon-cart"></div>
+						<!---->
+						<div data-v-737dc7a5="" class="top-cart-list-box" style="display: none;">
+							<div data-v-737dc7a5="" class="list-box"></div>
+							<div data-v-737dc7a5="" class="top-cart-footer clearfix">
+								<div data-v-737dc7a5="" class="fl left-text">合计（不含运费）<span data-v-737dc7a5="" class="red totalPrice">￥</span></div>
+								<div data-v-737dc7a5="" class="fr right-btn">去购物车结算</div>
+							</div>
+						</div>
+					</div>
+					<div data-v-737dc7a5="" class="fl top-icon">
+						<div data-v-737dc7a5="" class="message"></div>
+					</div>
+					<div data-v-737dc7a5="" class="fl top-icon">
+						<div data-v-737dc7a5="" class="person-icon"></div>
+					</div>
+				</div>
+			</div>
+			<!---->
+			<div data-v-3226b275="" data-v-0fa58336="" class="line-nav-box">
+				<div data-v-3226b275="" class="nav-box margin-auto max-width clearfix ">
+					<div data-v-3226b275="" class="fl all-classif"> 全部分类
+					</div>
+					<ul data-v-3226b275="" class="fl nav">
+						<li data-v-3226b275="" class="">首页 </li>
+						<li data-v-3226b275="" class="">爆款 </li>
+						<li data-v-3226b275="" class="">英文原版 </li>
+						<li data-v-3226b275="" class="">名家绘本 </li>
+						<li data-v-3226b275="" class="">精品文创 </li>
+						<li data-v-3226b275="" class="">益智玩具 </li>
+						<li data-v-3226b275="" class="">数码家电 </li>
+						<li data-v-3226b275="" class="">家居日百 </li>
+						<li data-v-3226b275="" class="">文具 </li>
+						<li data-v-3226b275="" class="">电子智慧卡 </li>
+					</ul>
+				</div>
+			</div>
+			<div data-v-0fa58336="" class="common-container">
+				<div data-v-74b53b74="" data-v-0fa58336="">
+					<div data-v-74b53b74="" class="detailsContainer max-width margin-auto">
+						<div data-v-74b53b74="" class="breadcrumb">
+							<div data-v-74b53b74="" aria-label="Breadcrumb" role="navigation" class="el-breadcrumb"><span data-v-74b53b74=""
+								 class="el-breadcrumb__item"><span role="link" class="el-breadcrumb__inner is-link">首页</span>》</span><span
+								 data-v-74b53b74="" class="el-breadcrumb__item" aria-current="page"><span role="link" class="el-breadcrumb__inner">{{book.bookName}}</span><i
+									 class="el-breadcrumb__separator el-icon-arrow-right"></i></span></div>
+						</div>
+						<div data-v-74b53b74="" class="productBox clearfix">
+							<div data-v-74b53b74="" class="left-img-box fl">
+								<div data-v-74b53b74="" class="middle-imgbox position-relative">
+									<img data-v-74b53b74="" alt="" class="img-position-center" :src="book.imageUrl" lazy="loaded"></div>
+								<ul data-v-74b53b74="" class="small-img-box">
+									<li data-v-74b53b74="" class="position-relative">
+										<img data-v-74b53b74="" alt="" class="img-position-center" src= lazy="loaded">
+									</li>
+								</ul>
+							</div>
+							<div data-v-74b53b74="" class="right-product-details fr">
+								<div data-v-74b53b74="" class="title-box">
+									<h5 data-v-74b53b74="" class="title">{{book.bookName}}</h5>
+									<p data-v-74b53b74="" class="title-desc">{{book.instroduce}}</p>
+								</div>
+								<div data-v-74b53b74="" class="type-box">
+									<div data-v-74b53b74="" class="book-classif" style="font-size: 12px;">
+										<div data-v-74b53b74="" class="list fl"><span data-v-74b53b74="">作者</span><span data-v-74b53b74="">{{book.author}}</span></div>
+										<div data-v-74b53b74="" class="list fl"><span data-v-74b53b74="">出版社</span><span data-v-74b53b74="">{{book.publisher}}</span></div>
+										<div data-v-74b53b74="" class="list fl"><span data-v-74b53b74="">ISBN</span><span data-v-74b53b74="">{{book.isbn}}</span></div>
+										<div data-v-74b53b74="" class="list fl"><span data-v-74b53b74="">出版时间</span><span data-v-74b53b74="">{{book.publishTime}}</span></div>
+									</div>
+									<div data-v-74b53b74=""></div>
+									<div data-v-74b53b74="" class="piaowu-box" style="display: none;">
+										<p data-v-74b53b74=""><span data-v-74b53b74="" class="piao-wu-label">地址</span> </p>
+										<p data-v-74b53b74=""><span data-v-74b53b74="" class="piao-wu-label">活动时间</span> </p>
+										<p data-v-74b53b74=""><span data-v-74b53b74="" class="piao-wu-label">预订时间</span> </p>
+										<p data-v-74b53b74=""><span data-v-74b53b74="" class="piao-wu-label">有效期</span> </p>
+									</div>
+									<div data-v-74b53b74="" class="price-box">
+										<span data-v-74b53b74="" class="text">价格</span><span data-v-74b53b74="" class="price">￥{{book.price}}</span>
+										<span data-v-74b53b74="" class="line-price">￥{{book.salePrice}}</span></div>
+									<div data-v-74b53b74="" style="margin-top: 10px; margin-bottom: 10px; display: none;"><span data-v-74b53b74=""
+										 class="canUseGroupVipPay"><span data-v-74b53b74="" class="canUseIcon"></span>可使用团体会员余额支付</span></div>
+								</div>
+
+								<div data-v-74b53b74="" class="count-box"><span data-v-74b53b74="" class="c-text">数量</span>
+									<div style="z-index: 0" data-v-74b53b74="" class="el-input-number el-input-number--small">
+										<span @click="changeNum(0)" role="button" class="el-input-number__decrease">-</span>
+										<span @click="changeNum(1)" role="button" class="el-input-number__increase">+</span>
+										<div class="el-input el-input--small">
+											<input v-model="num" type="text" autocomplete="off" max="560" min="1" class="el-input__inner" role="spinbutton"
+											 aria-valuemax="NaN" aria-valuemin="1" aria-valuenow="1" aria-disabled="undefined">
+										</div>
+									</div>
+									<span data-v-74b53b74="" class="line-count">线上库存 <span data-v-74b53b74="" class="number red">{{book.count}}</span>
+										件</span>
+								</div>
+								<div data-v-74b53b74="" class="button-box">
+										<button data-v-74b53b74="" type="button" class="el-button buy"><span>立即购买 </span></button>
+										<button @click="addShopping" data-v-74b53b74="" type="button" class="el-button el-button--primary">
+											<span>加入购物车</span>
+										</button>
+										<button data-v-74b53b74="" type="button" class="el-button edter el-button--default">
+										<span><i data-v-74b53b74="" class="ivu-icon ivu-icon-ios-heart-outline" style="font-size: 26px;"></i>
+											收藏 </span></button></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--登录注册的页面-->
+			<div data-v-0fa58336="" id="loginDiv2" class="el-dialog__wrapper login-or-register-box" style="display: none;">
+				<div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog" style="margin-top: 15vh; width: 862px;">
+					<div class="el-dialog__header"><span class="el-dialog__title"></span>
+						<button @click="closeLogin" type="button" aria-label="Close" class="el-dialog__headerbtn">×</button></div>
+					<div class="el-dialog__body">
+						<div data-v-0fa58336="" class="flex-row">
+							<div data-v-0fa58336="" class="left-img flex-grow-0"><img data-v-0fa58336="" src="/img/pcbanner.ee955524.png"
+								 alt=""></div>
+							<div data-v-0fa58336="" class="login-box flex-grow-1">
+								<div data-v-0fa58336="" class="store-logo"><img data-v-0fa58336="" src="/img/pc_logo.5cb2ed14.png"
+									 alt=""></div>
+								<!--登录的表单-->
+								<form v-if="loginAndRegist=='login'" data-v-0fa58336="" style="">
+									<div data-v-0fa58336="" class="input-list"><input v-model="inputUser.username" data-v-0fa58336="" type="text" placeholder="账号"></div>
+									<div data-v-0fa58336="" class="input-list"><input v-model="inputUser.password" data-v-0fa58336="" type="password" placeholder="密码"></div>
+									<div data-v-0fa58336="" class="notice clearfix"><span data-v-0fa58336="" class="fl red"></span><span
+										 data-v-0fa58336="" class="fr" style="cursor: pointer;">忘记密码</span></div>
+										 <button @click="doLogin" data-v-0fa58336="" type="button" class="login-btn">登录</button>
+									<!--点击注册，切换到注册表单-->
+									<p @click="changeForm"  data-v-0fa58336="" class="typedesc">注册</p>
+									<p data-v-0fa58336="">登录注册表示同意《<a data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">使用协议</a>和<a
+										 data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">隐私政策</a>》</p>
+								</form>
+								<!--注册的表单-->
+								<form v-else data-v-0fa58336="">
+									<div data-v-0fa58336="" class="input-list phone-input">
+										<label data-v-0fa58336="">+86</label>
+										<input v-model="inputUser.username"  data-v-0fa58336="" type="text" placeholder="请输入手机号">
+									</div>
+									<div data-v-0fa58336="" class="input-list code-box">
+										<input v-model="inputUser.password"  data-v-0fa58336="" style="float: left" type="password" placeholder="请输入密码">
+									</div>
+									<div data-v-0fa58336="" class="notice clearfix">
+										<span data-v-0fa58336="" class="fl red"></span>
+									</div>
+									<button @click="doRegist"  data-v-0fa58336="" type="button" class="login-btn">注册</button>
+									<!--点击登录，切换到登录表单-->
+									<p @click="changeForm"  data-v-0fa58336="" class="typedesc">登录</p><p data-v-0fa58336="">登录注册表示同意《<a data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">使用协议</a>和<a data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">隐私政策</a>》</p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/js/vue.js" ></script>
+		<script type="text/javascript" src="/js/axios.min.js" ></script>
+		<script type="text/javascript" src="/layui/layui.js" ></script>
+		<script type="text/javascript" src="/js/jquery-3.4.1.min.js" ></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					book:{},//当前图书对象
+					loginAndRegist:"login",//显示登录或者注册表单的状态控制
+					inputUser:{
+					    username:"",
+						password:""
+					},
+					loginUser:null,//存储用户登录之后的信息
+					num:1//购物车购买的图书数量
+				},
+				mounted:function () {
+					//获取传递的图书id
+					var bid = window.localStorage.getItem("bid");
+					//获取sessionStorage中的用户信息
+					var loginUser = window.sessionStorage.getItem("loginUser");
+					if(loginUser!=null){
+					    this.loginUser = JSON.parse(loginUser);
+					}
+					//根据bid向后端查询图书详情
+					axios.get("/books/bookDetailById?",{
+					    params:{
+					        bid:bid
+						}
+					})
+						.then(function (res) {
+							vm.book = res.data.data;
+						})
+                },
+				methods:{
+				    //点击登录，切换到登录表单，点击注册，切换到注册表单
+                    changeForm:function () {
+						this.loginAndRegist = this.loginAndRegist=="login"?"regist":"login";
+                    },
+					//注册
+                    doRegist:function () {
+						//手机号正则表达式
+						var regex = /^1[3|5|7|8]\d{9}$/;
+						//regex.test():返回值如果为true，匹配成功  如果为false，匹配失败
+						if(!regex.test(this.inputUser.username) || this.inputUser.password==""){
+						    alert("表单输入格式有误");
+						}else{
+						    //提交数据到后端
+							axios.post("/users/regist",this.inputUser)
+								.then(function (res) {
+									if(res.data.code==0){
+									    alert(res.data.msg);
+									    //隐藏注册提示框
+									    document.getElementById("loginDiv2").style.display = "none";
+									}else{
+									    alert(res.data.msg);
+									}
+								})
+						}
+                    },
+					//登录
+                    doLogin:function () {
+                        //手机号正则表达式
+                        var regex = /^1[3|5|7|8]\d{9}$/;
+                        //regex.test():返回值如果为true，匹配成功  如果为false，匹配失败
+                        if(!regex.test(this.inputUser.username) || this.inputUser.password==""){
+                            alert("登录表单输入格式有误");
+                        }else{
+                            axios.post("/users/login",this.inputUser)
+								.then(function (res) {
+									if(res.data.code==0){
+									    alert(res.data.msg);
+									    //隐藏登陆框
+                                        document.getElementById("loginDiv2").style.display = "none";
+                                        //将登录之后的用户信息放到sessionStorage中
+										window.sessionStorage.setItem("loginUser",JSON.stringify(res.data.data));
+										//将获取到的数据赋值给vm的loginUser
+										vm.loginUser = res.data.data;
+									}else{
+									    alert(res.data.msg);
+									}
+                                })
+						}
+                    },
+					//关闭登录弹框
+					closeLogin:function () {
+                        //隐藏登陆框
+                        document.getElementById("loginDiv2").style.display = "none";
+                    },
+                    //加减改变数量
+					changeNum:function (flag) {
+						if(flag==0){
+						    this.num = this.num==1?1:this.num-1;
+						}else{
+						    this.num = this.num==this.book.count?this.book.count:this.num+1;
+						}
+                    },
+					//加入购物车
+                    addShopping:function () {
+						axios.post("/books/addShopping",{
+						    bid:this.book.bookId,
+							num:this.num
+						})
+							.then(function (res) {
+							    if(res.data.code==0){
+							        alert(res.data.msg);
+								}else{
+							        alert(res.data.msg);
+                                    document.getElementById("loginDiv2").style.display = "block";
+								}
+							})
+                    },
+					//退出登录
+                    exitLogin:function () {
+						axios.post("/users/exit")
+							.then(function (res) {
+							    if(res.data.code==0){
+							        //清空sessionStorage中的loginUser
+									window.sessionStorage.removeItem("loginUser");
+									vm.loginUser = null;
+							        alert(res.data.msg);
+								}
+							})
+                    },
+					//点击进入购物车界面
+                    gotoShoppingCart:function () {
+						axios.post("/users/check")
+							.then(function (res) {
+							    if(res.data.code==0){
+							       // alert(res.data.msg);
+							        window.location.href = "/pages/shopping_cart.html"
+								}else{
+							        alert(res.data.msg);
+								}
+							})
+                    }
+				}
+			})
+		</script>
+	</body>
+</html>

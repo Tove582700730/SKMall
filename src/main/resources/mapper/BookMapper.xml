@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianfeng.dao.BookMapper" >
+  <resultMap id="BaseResultMap" type="com.qianfeng.pojo.Book" >
+    <id column="book_id" property="bookId" jdbcType="INTEGER" />
+    <result column="book_name" property="bookName" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="publisher" property="publisher" jdbcType="VARCHAR" />
+    <result column="isbn" property="isbn" jdbcType="VARCHAR" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="sale_price" property="salePrice" jdbcType="REAL" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="type_id" property="typeId" jdbcType="INTEGER" />
+    <result column="detail" property="detail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_book
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qianfeng.pojo.Book" >
+    insert into tb_book (book_id, book_name, author, 
+      introduce, image_url, publisher, 
+      isbn, publish_time, price, 
+      sale_price, count, type_id, 
+      detail)
+    values (#{bookId,jdbcType=INTEGER}, #{bookName,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{introduce,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, 
+      #{isbn,jdbcType=VARCHAR}, #{publishTime,jdbcType=TIMESTAMP}, #{price,jdbcType=REAL}, 
+      #{salePrice,jdbcType=REAL}, #{count,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, 
+      #{detail,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.qianfeng.pojo.Book" >
+    update tb_book
+    set book_name = #{bookName,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=VARCHAR},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      publisher = #{publisher,jdbcType=VARCHAR},
+      isbn = #{isbn,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      price = #{price,jdbcType=REAL},
+      sale_price = #{salePrice,jdbcType=REAL},
+      count = #{count,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=INTEGER},
+      detail = #{detail,jdbcType=LONGVARCHAR}
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select book_id, book_name, author, introduce, image_url, publisher, isbn, publish_time, 
+    price, sale_price, count, type_id, detail
+    from tb_book
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select book_id, book_name, author, introduce, image_url, publisher, isbn, publish_time, 
+    price, sale_price, count, type_id, detail
+    from tb_book
+  </select>
+
+  <select id="getBookByTypeId" resultMap="BaseResultMap">
+    select * from tb_book
+    where type_id=#{tid}
+  </select>
+</mapper>
