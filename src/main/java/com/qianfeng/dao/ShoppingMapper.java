@@ -4,7 +4,7 @@ import com.qianfeng.pojo.Shopping;
 import java.util.List;
 
 public interface ShoppingMapper {
-    int deleteByPrimaryKey(Integer sid);
+    int deleteByPrimaryKey(Integer sid);//删除操作的实现
 
     int insert(Shopping record);
 

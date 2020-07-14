@@ -41,6 +41,11 @@ public class BookController {
         ResultVo resultVo = shoppingService.addShopping(shopping,session);
         return resultVo;
     }
+    @RequestMapping("/deleteShopping")
+    public ResultVo deleteShopping(@RequestBody Shopping shopping){
+        ResultVo resultVo = shoppingService.deleteShopping(shopping.getSid());
+        return resultVo;
+    }
     @RequestMapping("/getShoppingList")
     public ResultVo getShoppingList(HttpSession session){
         ResultVo resultVo = shoppingService.getShoppingList(session);

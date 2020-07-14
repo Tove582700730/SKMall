@@ -49,8 +49,13 @@
 	<link rel="stylesheet" href="/css/rep.css">
 	<script charset="utf-8" src="/js/mycart.4a33c6dc.js"></script>
 </head>
+
+
 <body>
 <div data-v-0fa58336="" id="app">
+
+
+
 	<div data-v-16d07261="" data-v-0fa58336="" class="top-header-box">
 		<div data-v-16d07261="" class="margin-auto max-width clearfix">
 			<div data-v-16d07261="" class="notice-box">
@@ -76,9 +81,12 @@
 				</div>
 			</div>
 			<ul data-v-16d07261="" class="top-nav">
-				<li data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)"><span data-v-16d07261="">欢迎光临深圳书城 </span><span
-						data-v-16d07261="">17863957393</span><span data-v-16d07261="" class="loginOut">退出登录</span></a></li>
-				<li data-v-16d07261=""><a data-v-16d07261="" href="https://www.szbookmall.com/user/order" class="">我的订单</a></li>
+				<li  data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)" >
+					<span data-v-16d07261="">欢迎光临深圳书城 </span>
+					<span  data-v-16d07261="">17863957393</span></a>
+				</li>
+
+				<li data-v-16d07261=""><a data-v-16d07261="" href="http://localhost:8080/pages/order.html" class="">我的订单</a></li>
 			</ul>
 		</div>
 	</div>
@@ -220,7 +228,9 @@
 								<div data-v-0f64cdbe="" class="flex-grow-0 flex-x-center status li5"> {{shopping.num*shopping.book.price}}</div>
 								<div data-v-0f64cdbe="" class="flex-grow-0 flex-x-center other li6 ">
 									<div data-v-0f64cdbe="">
-										<div data-v-0f64cdbe="" class="hover">删除</div>
+										<div @click="deletebook(index)"data-v-0f64cdbe="" class="hover" >
+											删除
+										</div>
 									</div>
 								</div>
 							</div>
@@ -249,7 +259,6 @@
             selectedShoppingList:[],//存储被选择的购物车的id
 
 
-
         },
 
 
@@ -261,6 +270,7 @@
                 })
         },
         methods:{
+
             //全选
             selectAll:function () {
                 var that = this;
@@ -305,28 +315,28 @@
             },
             changeNum:function (flag,index) {
                 var that = this;
-                var tag = 0;
+                var turenum = 0;
 
-                if(flag==0){
-                    tag = -1;
-                    if(that.shoppingList[index].num>1)
-                    {that.shoppingList[index].num =that.shoppingList[index].num-1;}
-                    else{
-                        alert("最少购买一本");
+                if(flag==0){//进行的减少操作
+                    turenum = -1;
+                    if(that.shoppingList[index].num>1) {
+                        that.shoppingList[index].num =that.shoppingList[index].num-1;
                     }
-                }else{
-                    tag = 1;
+                    else{
+                        alert("不能再减少数量了");
+                    }
+                }else{//进行的增加操作
+                    turenum = 1;
                     if(that.shoppingList[index].num<=that.shoppingList[index].book.count-1)
                     {that.shoppingList[index].num = that.shoppingList[index].num+1;}
                     else{
-                        alert("已达到最大库存");
+                        alert("不能再增加数量了");
                     }
 
                 }
-
                 axios.post("/books/addShopping",{
                     bid:that.shoppingList[index].book.bookId,
-                    num:tag
+                    num:turenum
                 }).then()
 
             },
@@ -348,7 +358,27 @@
                             alert(res.data.msg);
                         }
                     })
+            },
+			//删除购物车里的图书操作
+			deletebook:function (index) {
+                var  that = this;
+                axios.post("/books/deleteShopping",{
+                    sid:that.shoppingList[index].sid
+                }).then(function (res) {
+					if(res.data.code==0)
+					{
+					    alert("删除成功")
+                        that.shoppingList.splice(index,1);
+					}
+					else{
+					    alert("删除失败")
+                        that.shoppingList.splice(index,1);
+					}
+                })
             }
+
+
+
         },
         //computed：监控自己定义的变量，只要变量更改，都会触发
         computed:{

@@ -31,6 +31,7 @@
 
 	</head>
 	<body>
+
 		<div data-v-0fa58336="" id="app">
 			<div data-v-16d07261="" data-v-0fa58336="" class="top-header-box">
 				<div data-v-16d07261="" class="margin-auto max-width clearfix">
@@ -57,13 +58,13 @@
 					<ul data-v-16d07261="" class="top-nav">
 						<li v-if="loginUser==null" data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)" >
 							<span data-v-16d07261="">欢迎光临深圳书城 ,请先</span>
-							<span data-v-16d07261="">登录</span> / <span data-v-16d07261="">注册</span></a>
+							<span @click="view" data-v-16d07261="">登录/注册</span></a>
 						</li>
 						<li v-else data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)" >
-							<span data-v-16d07261="">欢迎光临深圳书城 ,请先</span>
-							<span data-v-16d07261="">{{loginUser.username}}</span> / <span @click="exitLogin" data-v-16d07261="">退出登录</span></a>
+							<span data-v-16d07261="">欢迎光临深圳书城 </span>
+							<span data-v-16d07261="">{{loginUser.username}}</span> / <span @click="exitLogin" data-v-16d07261="">退出</span></a>
 						</li>
-						<li data-v-16d07261=""><a data-v-16d07261="" href="https://www.szbookmall.com/user/order" class="">我的订单</a></li>
+						<li data-v-16d07261=""><a data-v-16d07261="" href="http://localhost:8080/pages/order.html" class="">我的订单</a></li>
 					</ul>
 				</div>
 			</div>
@@ -85,12 +86,13 @@
 						<div data-v-248f958f="" class="top-cart-list-box" style="display: none;">
 							<div data-v-248f958f="" class="list-box"></div>
 							<div data-v-248f958f="" class="top-cart-footer clearfix">
-								<div data-v-248f958f="" class="fl left-text">合计（不含运费）<span data-v-248f958f="" class="red totalPrice">￥</span></div>
+								<div data-v-248f958f="" class="fl left-text">合计（不含运费）<span data-v-248f958f=""
+																						   class="red totalPrice">￥</span>
+								</div>
 								<div data-v-248f958f="" class="fr right-btn">去购物车结算</div>
 							</div>
 						</div>
-					</div>
-					<div data-v-248f958f="" class="fl top-icon">
+
 						<div data-v-248f958f="" class="message"></div>
 					</div>
 					<div data-v-248f958f="" class="fl top-icon">
@@ -210,9 +212,7 @@
 										<button @click="addShopping" data-v-74b53b74="" type="button" class="el-button el-button--primary">
 											<span>加入购物车</span>
 										</button>
-										<button data-v-74b53b74="" type="button" class="el-button edter el-button--default">
-										<span><i data-v-74b53b74="" class="ivu-icon ivu-icon-ios-heart-outline" style="font-size: 26px;"></i>
-											收藏 </span></button></div>
+										</div>
 							</div>
 						</div>
 					</div>
@@ -273,15 +273,20 @@
 				el:"#app",
 				data:{
 					book:{},//当前图书对象
+
+                    shoppingList:[],//购物车列表
+
 					loginAndRegist:"login",//显示登录或者注册表单的状态控制
 					inputUser:{
 					    username:"",
 						password:""
 					},
 					loginUser:null,//存储用户登录之后的信息
+
 					num:1//购物车购买的图书数量
 				},
 				mounted:function () {
+
 					//获取传递的图书id
 					var bid = window.localStorage.getItem("bid");
 					//获取sessionStorage中的用户信息
@@ -304,6 +309,7 @@
                     changeForm:function () {
 						this.loginAndRegist = this.loginAndRegist=="login"?"regist":"login";
                     },
+
 					//注册
                     doRegist:function () {
 						//手机号正则表达式
@@ -377,6 +383,11 @@
 								}
 							})
                     },
+					//普通登录
+                    view :function (){
+                        document.getElementById("loginDiv2").style.display = "block";
+					},
+
 					//退出登录
                     exitLogin:function () {
 						axios.post("/users/exit")

@@ -53,4 +53,6 @@ public class Shopping implements Serializable {
     public void setNum(Integer num) {
         this.num = num;
     }
+
+
 }

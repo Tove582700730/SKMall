@@ -21,6 +21,52 @@
 	</head>
 	<body>
 		<div data-v-0fa58336="" id="app">
+
+			<div data-v-0fa58336=""id="loginDiv2" class="el-dialog__wrapper login-or-register-box" style="display: none;z-index: 100">
+				<div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog" style="margin-top: 15vh; width: 862px;">
+					<div class="el-dialog__header"><span class="el-dialog__title"></span>
+						<button @click="closeLogin" type="button" aria-label="Close" class="el-dialog__headerbtn">×</button></div>
+					<div class="el-dialog__body">
+						<div data-v-0fa58336="" class="flex-row">
+							<div data-v-0fa58336="" class="left-img flex-grow-0"><img data-v-0fa58336="" src="/img/pcbanner.ee955524.png"
+																					  alt=""></div>
+							<div data-v-0fa58336="" class="login-box flex-grow-1">
+								<div data-v-0fa58336="" class="store-logo"><img data-v-0fa58336="" src="/img/pc_logo.5cb2ed14.png"
+																				alt=""></div>
+								<!--登录的表单-->
+								<form v-if="loginAndRegist=='login'" data-v-0fa58336="" style="">
+									<div data-v-0fa58336="" class="input-list"><input v-model="inputUser.username" data-v-0fa58336="" type="text" placeholder="账号"></div>
+									<div data-v-0fa58336="" class="input-list"><input v-model="inputUser.password" data-v-0fa58336="" type="password" placeholder="密码"></div>
+									<div data-v-0fa58336="" class="notice clearfix"><span data-v-0fa58336="" class="fl red"></span><span
+											data-v-0fa58336="" class="fr" style="cursor: pointer;">忘记密码</span></div>
+									<button @click="doLogin" data-v-0fa58336="" type="button" class="login-btn">登录</button>
+									<!--点击注册，切换到注册表单-->
+									<p @click="changeForm"  data-v-0fa58336="" class="typedesc">注册</p>
+									<p data-v-0fa58336="">登录注册表示同意《<a data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">使用协议</a>和<a
+											data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">隐私政策</a>》</p>
+								</form>
+								<!--注册的表单-->
+								<form v-else data-v-0fa58336="">
+									<div data-v-0fa58336="" class="input-list phone-input">
+										<label data-v-0fa58336="">+86</label>
+										<input v-model="inputUser.username"  data-v-0fa58336="" type="text" placeholder="请输入手机号">
+									</div>
+									<div data-v-0fa58336="" class="input-list code-box">
+										<input v-model="inputUser.password"  data-v-0fa58336="" style="float: left" type="password" placeholder="请输入密码">
+									</div>
+									<div data-v-0fa58336="" class="notice clearfix">
+										<span data-v-0fa58336="" class="fl red"></span>
+									</div>
+									<button @click="doRegist"  data-v-0fa58336="" type="button" class="login-btn">注册</button>
+									<!--点击登录，切换到登录表单-->
+									<p @click="changeForm"  data-v-0fa58336="" class="typedesc">登录</p><p data-v-0fa58336="">登录注册表示同意《<a data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">使用协议</a>和<a data-v-0fa58336="" href="javascript:void(0)" style="color: rgb(111, 165, 250);">隐私政策</a>》</p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div data-v-16d07261="" data-v-0fa58336="" class="top-header-box">
 				<div data-v-16d07261="" class="margin-auto max-width clearfix">
 					<div data-v-16d07261="" class="notice-box">
@@ -46,9 +92,15 @@
 						</div>
 					</div>
 					<ul data-v-16d07261="" class="top-nav">
-						<li data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)"><span data-v-16d07261="">欢迎光临深圳书城 ,请先
-								</span><span data-v-16d07261="">登录</span> / <span data-v-16d07261="">注册</span></a></li>
-						<li data-v-16d07261=""><a data-v-16d07261="" href="https://www.szbookmall.com/user/order" class="">我的订单</a></li>
+						<li v-if="loginUser==null" data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)" >
+							<span data-v-16d07261="">欢迎光临深圳书城 </span>
+							<span @click="view" data-v-16d07261="">登录/注册</span></a>
+						</li>
+						<li v-else data-v-16d07261=""><a data-v-16d07261="" href="javascript:void (0)" >
+							<span data-v-16d07261="">欢迎光临深圳书城 </span>
+							<span data-v-16d07261="">{{loginUser.username}}</span> / <span @click="exitLogin" data-v-16d07261="">退出</span></a>
+						</li>
+						<li data-v-16d07261=""><a data-v-16d07261="" href="http://localhost:8080/pages/order.html" class="">我的订单</a></li>
 					</ul>
 				</div>
 			</div>
@@ -238,9 +290,22 @@
 				totalPage:0,//总页数
 				pageBooks:[], //二维数组，内部每一个元素都是不同页码所对应的数据
 				currPage:0,//当前页的页码:从0开始的原因是为了跟pageBooks这个二维数组中的数据一一对应
-				dataShow:[]//当前页码所要显示的所有数据
+				dataShow:[],//当前页码所要显示的所有数据
+
+                loginAndRegist:"login",//显示登录或者注册表单的状态控制
+                inputUser:{
+                    username:"",
+                    password:""
+                },
+                loginUser:null,//存储用户登录之后的信息
+
 			},
 			mounted:function () {
+                //获取sessionStorage中的用户信息
+                var loginUser = window.sessionStorage.getItem("loginUser");
+                if(loginUser!=null){
+                    this.loginUser = JSON.parse(loginUser);
+                }
 				//1.---页面加载完之后执行此方法
 				//接收传递的参数
 				// var tid = window.localStorage.getItem("tid");
@@ -287,7 +352,82 @@
             },
 
 			methods:{
-			    //点击页码切换对应的内容
+
+                //点击登录，切换到登录表单，点击注册，切换到注册表单
+                changeForm:function () {
+                    this.loginAndRegist = this.loginAndRegist=="login"?"regist":"login";
+                },
+                //注册
+                doRegist:function () {
+                    //手机号正则表达式
+                    var regex = /^1[3|5|7|8]\d{9}$/;
+                    //regex.test():返回值如果为true，匹配成功  如果为false，匹配失败
+                    if(!regex.test(this.inputUser.username) || this.inputUser.password==""){
+                        alert("表单输入格式有误");
+                    }else{
+                        //提交数据到后端
+                        axios.post("/users/regist",this.inputUser)
+                            .then(function (res) {
+                                if(res.data.code==0){
+                                    alert(res.data.msg);
+                                    //隐藏注册提示框
+                                    document.getElementById("loginDiv2").style.display = "none";
+                                }else{
+                                    alert(res.data.msg);
+                                }
+                            })
+                    }
+                },
+                //登录
+                doLogin:function () {
+                    //手机号正则表达式
+                    var regex = /^1[3|5|7|8]\d{9}$/;
+                    //regex.test():返回值如果为true，匹配成功  如果为false，匹配失败
+                    if(!regex.test(this.inputUser.username) || this.inputUser.password==""){
+                        alert("登录表单输入格式有误");
+                    }else{
+                        axios.post("/users/login",this.inputUser)
+                            .then(function (res) {
+                                if(res.data.code==0){
+                                    alert(res.data.msg);
+                                    //隐藏登陆框
+                                    document.getElementById("loginDiv2").style.display = "none";
+                                    //将登录之后的用户信息放到sessionStorage中
+                                    window.sessionStorage.setItem("loginUser",JSON.stringify(res.data.data));
+                                    //将获取到的数据赋值给vm的loginUser
+                                    vm.loginUser = res.data.data;
+                                }else{
+                                    alert(res.data.msg);
+                                }
+                            })
+                    }
+                },
+                //关闭登录弹框
+                closeLogin:function () {
+                    //隐藏登陆框
+                    document.getElementById("loginDiv2").style.display = "none";
+                },
+                //普通登录
+                view :function (){
+                    document.getElementById("loginDiv2").style.display = "block";
+                },
+
+                //退出登录
+                exitLogin:function () {
+                    axios.post("/users/exit")
+                        .then(function (res) {
+                            if(res.data.code==0){
+                                //清空sessionStorage中的loginUser
+                                window.sessionStorage.removeItem("loginUser");
+                                vm.loginUser = null;
+                                alert(res.data.msg);
+                            }
+                        })
+                },
+
+
+
+                //点击页码切换对应的内容
                 changePage:function (i) {
                     //修改当前页码
 					this.currPage = i-1;

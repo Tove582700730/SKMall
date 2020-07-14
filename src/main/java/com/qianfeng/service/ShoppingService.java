@@ -13,6 +13,8 @@ public interface ShoppingService {
      * @return
      */
     ResultVo addShopping(Shopping shopping, HttpSession session);
-
+   // ResultVo deletebook(Shopping shopping, HttpSession session);
     ResultVo getShoppingList(HttpSession session);
+
+    ResultVo deleteShopping(Integer sid);
 }

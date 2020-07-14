@@ -40,6 +40,17 @@ public class ShoppingServiceImpl implements ShoppingService {
             return ResultVo.success("购物车添加成功");
         }
     }
+               //删除 使用shift alt ins 生成这个函数
+    @Override
+    public ResultVo deleteShopping(Integer sid) {
+        Integer i = shoppingMapper.deleteByPrimaryKey(sid);
+        if(i!=0)  {
+            return ResultVo.success("success");
+        }
+        else{
+            return ResultVo.error("error");
+        }
+    }
 
     @Override
     public ResultVo getShoppingList(HttpSession session) {
