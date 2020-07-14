@@ -332,29 +332,29 @@
 <script type="text/javascript" src="/js/vue.js"></script>
 <script type="text/javascript" src="/js/axios.min.js"></script>
 <script>
-var vm = new Vue({
+    var vm = new Vue({
         el:"#app",
         data:{
             orderDetailList:[],//订单详情的数组
             totalMoney:0
         },
         mounted:function(){
-          //获取订单详情
-          var oid = window.localStorage.getItem("oid");
-          axios.get("/orders/list",{
-              params:{
-                  oid:oid
-              }
-          }).then(function (res) {
-              if(res.data.code==0){
-                  vm.orderDetailList = res.data.data;
-                  for(var i=0;i<vm.orderDetailList.length;i++){
-                      vm.totalMoney+=vm.orderDetailList[i].num*vm.orderDetailList[i].book.price;
-                  }
-              }else{
-                  alert(res.data.msg)
-              }
-          })
+            //获取订单详情
+            var oid = window.localStorage.getItem("oid");
+            axios.get("/orders/list",{
+                params:{
+                    oid:oid
+                }
+            }).then(function (res) {
+                if(res.data.code==0){
+                    vm.orderDetailList = res.data.data;
+                    for(var i=0;i<vm.orderDetailList.length;i++){
+                        vm.totalMoney+=vm.orderDetailList[i].num*vm.orderDetailList[i].book.price;
+                    }
+                }else{
+                    alert(res.data.msg)
+                }
+            })
         },
         methods:{
             //点击提交订单能执行的方法
@@ -370,12 +370,12 @@ var vm = new Vue({
                         var blob = this.response;
                         var img = document.createElement("img");
                         img.onload = function(e) {
-							//URL.revokeObjectURL()方法会释放一个通过URL.createObjectURL()创建的对象URL. 
-							//当你要已经用过了这个对象URL,然后要让浏览器知道这个URL已经不再需要指向对应的文件的时候,
-							//就需要调用这个方法.	
+                            //URL.revokeObjectURL()方法会释放一个通过URL.createObjectURL()创建的对象URL.
+                            //当你要已经用过了这个对象URL,然后要让浏览器知道这个URL已经不再需要指向对应的文件的时候,
+                            //就需要调用这个方法.
                             window.URL.revokeObjectURL(img.src);
                         };
-						//根据传入的参数创建一个指向该参数对象的URL. 这个URL的生命仅存在于它被创建的这个文档里，Blob对象
+                        //根据传入的参数创建一个指向该参数对象的URL. 这个URL的生命仅存在于它被创建的这个文档里，Blob对象
                         img.src = window.URL.createObjectURL(blob);
                         //给img标签添加class
                         img.className = "erweima";
