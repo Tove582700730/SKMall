@@ -13,7 +13,7 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookMapper bookMapper;
 
-    @Override
+    @Override//对接口中的两个方法的重写
     public List<Book> getBookByTypeId(Integer tid) {
         List<Book> bookList = bookMapper.getBookByTypeId(tid);
         return bookList;
@@ -21,6 +21,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book getBookDetailById(Integer bid) {
+
         return bookMapper.selectByPrimaryKey(bid);
     }
 }
