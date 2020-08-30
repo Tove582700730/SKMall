@@ -1,6 +1,8 @@
 package com.qianfeng.dao;
 
 import com.qianfeng.pojo.Book;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface BookMapper {
@@ -8,7 +10,7 @@ public interface BookMapper {
 
     int insert(Book record);
 
-    Book selectByPrimaryKey(Integer bookId);
+    Book selectByPrimaryKey(@Param("bookId") Integer bookId);
 
     List<Book> selectAll();
 
