@@ -19,4 +19,6 @@ public interface BookService {
      * @return
      */
    public abstract  Book getBookDetailById(Integer bid);
+
+
 }

@@ -12,6 +12,7 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookMapper bookMapper;
+    /* Service层调用Dao层  所以要初始化一个bookMapper */
 
     @Override//对接口中的两个方法的重写
     public List<Book> getBookByTypeId(Integer tid) {
@@ -24,4 +25,10 @@ public class BookServiceImpl implements BookService {
 
         return bookMapper.selectByPrimaryKey(bid);
     }
+
+   /* @Override
+    public int addBook(Book book) {
+        return bookMapper.insert(book);
+    }*/
+
 }

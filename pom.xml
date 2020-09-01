@@ -92,6 +92,12 @@
       <artifactId>fastjson</artifactId>
       <version>1.2.62</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.58</version>
+    </dependency>
     <!-- shiro的核心包：我们这里只使用他的加盐加密 -->
     <dependency>
       <groupId>org.apache.shiro</groupId>

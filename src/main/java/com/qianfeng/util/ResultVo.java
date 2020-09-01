@@ -77,3 +77,7 @@ public class ResultVo {
         this.data = data;
     }
 }
+/*
+这是一个简化版的实体类
+只是用来返回一个 实体类的 某些属性
+ */
