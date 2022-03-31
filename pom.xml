@@ -36,7 +36,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
-      <version>4.3.18.RELEASE</version>
+      <version>5.3.18</version>
     </dependency>
     <!--导入spring-context的依赖-->
     <dependency>
